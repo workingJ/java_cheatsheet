@@ -1,4 +1,4 @@
-# Java
+# Java Cheat Sheet
 
 ## Operatoren
 
