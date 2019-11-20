@@ -6,7 +6,7 @@
     - [Was ist ein Computer?](#was-ist-ein-computer)
     - [Was ist eigentlich ein Programm](#was-ist-eigentlich-ein-programm)
   - [**Programmierparadigmen, ein fundamentaler Programmier-Stile**](#programmierparadigmen-ein-fundamentaler-programmier-stile)
-    - [Warum Java?](#warum-java)
+    - [Warum Java](#warum-java)
   - [**Java: Ein erster Blick**](#java-ein-erster-blick)
     - [Modelle](#modelle)
     - [Objekte in Java](#objekte-in-java)
@@ -80,14 +80,12 @@ specifically
 - **Logik-basierte Sprachen**: Programm besteht aus Fakten und Regeln, es wird der Beweis einer Aussage gesucht (Prolog, ...)
 - **Objektorientierte Sprachen**: Objekte des Anwendungsbereiches können direkt mit ***Eigenschaften*** und ***Verhalten*** modelliert werden, Objekte tauschen ***Nachrichten*** aus, gleiche Objekte werden in ***Klassen*** zusammengefasst (Simula, Smalltalk; Eiffel, C++, Java, ...)
 
-### Warum Java?
+### Warum Java
 
 - Java ist eine **objektorientierte** Sprache mit imperativem Kern und funktionalen Erweiterungen
 - Java ist *die* Sprache des Internet-Zeitalters
 
 ## **Java: Ein erster Blick**
-
-**Modelle, Objekte, Klassen, Methoden, Programme**
 
 ### Modelle
 
@@ -117,14 +115,16 @@ Java verwendet für die Elemente eines Modelles ***Objekte***.
 ### Räpresentation in Java
 
 Der **Bildschirm (die Konsole)** wird durch ein **vordefiniertes Objekt** repräsentiert.  
-Dieses Objekt ist Instanz der Klasse `PrintStream`. 
+Dieses Objekt ist Instanz der Klasse `PrintStream`.
 Objekte der Klasse `PrintStream` erlauben das Ausgeben *Zeichenketten*.
 
-                             ---------------------------------                 
-               referenziert |    eine Instanz (ein Objekt)    |  modelliert   ---------
-    System.out ------------>|      der vordefinierten         |------------->| Monitor |
-                            |      Klasse Printstream         |               --------- 
-                             ---------------------------------
+```txt
+                         -----------------------------
+           referenziert |  eine Instanz (ein Objekt)  |  modelliert   ---------
+System.out ------------>|     der vordefinierten      |------------->| Monitor |
+                        |     Klasse Printstream      |               ---------
+                         -----------------------------
+```
 
 Eine **Referenz** in Java ist ein Ausdruck, der einen Bezug zu einem **Objekt** herstellt, der das Objekt referenziert.  
 `System.out` referenziert ein Objekt der Klasse `PrintStream`, welches den Monitor modelliert.  
@@ -136,6 +136,7 @@ Eine **Referenz** in Java ist ein Ausdruck, der einen Bezug zu einem **Objekt** 
 - Das aufrufen der Methode eines Objektes entspricht dem Senden der Nachricht an dieses Objekt.
 
 ### Nachrichten / Messages in Java
+
 Durch Nachrichten aktiviert man das Verhalten eines Objektes, das in Seiner Klasse vordefiniert wurde.  
 Schickt man eine **`println`-Nachricht an das Objekt der Klasse `PrintStream`**, wird ein Text auf dem Bildschirm ausgegeben.
 Das Verhalten, dass ausgelöst wird, stellt die Klasse `PrintStream` zur Verfügung.
