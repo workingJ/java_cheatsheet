@@ -12,7 +12,11 @@
     - [Objekte in Java](#objekte-in-java)
     - [Klassen in Java](#klassen-in-java)
     - [Räpresentation in Java](#r%c3%a4presentation-in-java)
+    - [Methoden](#methoden)
     - [Nachrichten / Messages in Java](#nachrichten--messages-in-java)
+      - [Komponenten einer Nachricht](#komponenten-einer-nachricht)
+      - [Statements in Java](#statements-in-java)
+  - [**Programme**](#programme)
   - [**Keywords**](#keywords)
   - [**Operatoren**](#operatoren)
   - [**Input & Output**](#input--output)
@@ -83,7 +87,7 @@ specifically
 
 ## **Java: Ein erster Blick**
 
-**Modelle, Objekte, Methoden, Klassen, Programme**
+**Modelle, Objekte, Klassen, Methoden, Programme**
 
 ### Modelle
 
@@ -116,13 +120,55 @@ Der **Bildschirm (die Konsole)** wird durch ein **vordefiniertes Objekt** reprä
 Dieses Objekt ist Instanz der Klasse `PrintStream`. 
 Objekte der Klasse `PrintStream` erlauben das Ausgeben *Zeichenketten*.
 
-![img](./001_repräsentation_in_java.png)
+                             ---------------------------------                 
+               referenziert |    eine Instanz (ein Objekt)    |  modelliert   ---------
+    System.out ------------>|      der vordefinierten         |------------->| Monitor |
+                            |      Klasse Printstream         |               --------- 
+                             ---------------------------------
 
 Eine **Referenz** in Java ist ein Ausdruck, der einen Bezug zu einem **Objekt** herstellt, der das Objekt referenziert.  
-`System.out` referenziert ein Objekt der Klasse `PrintStream`, welches den Monitor modelliert.   `System.out` ist eine Referenz auf das Objekt.
+`System.out` referenziert ein Objekt der Klasse `PrintStream`, welches den Monitor modelliert.  
+`System.out` ist also eine **Referenz auf das `PrintStream`-Objekt**.
+
+### Methoden
+
+- Das in einer Klasse **vordefinierte Verhalten** wird als **Methode** bezeichnet.
+- Das aufrufen der Methode eines Objektes entspricht dem Senden der Nachricht an dieses Objekt.
 
 ### Nachrichten / Messages in Java
+Durch Nachrichten aktiviert man das Verhalten eines Objektes, das in Seiner Klasse vordefiniert wurde.  
+Schickt man eine **`println`-Nachricht an das Objekt der Klasse `PrintStream`**, wird ein Text auf dem Bildschirm ausgegeben.
+Das Verhalten, dass ausgelöst wird, stellt die Klasse `PrintStream` zur Verfügung.
+Es handelt sich hierbei um einen **Methoden-Aufruf**.  
+Der Code der die Nachricht gesendet (die Methode aufgerufen) hat wird so lange nicht weiter ausgeführt, bis das Verhalten dass die Nachricht ausgelöst hat abgearbeitet ist.
 
+```java
+System.out.println("Argument");
+```
+
+#### Komponenten einer Nachricht
+
+- **Empfänger**: Die Referenz auf das Empfänger-Objekt zB. `System.out` gefolgt von einem Punkt
+- **Methodenselektor**: Der Name des vordefinierten Verhaltens des Objektes zB. `print`, `println`
+- **Details**: Die weiteren Informationen die in Klammer eingeschlossen werden zB. `("Argument")`
+
+Hier am Beispiel:
+
+```Java
+System.out. // Empfänger, Referenz auf ein Objekt der Klasse print Stream
+println("Argument") // Stellt die gesammte Nachricht dar
+println()   // Das Verhalten, die vordefinierte Methode
+"Argument"  // Details der Nachricht, auch Argument genannt
+```
+
+#### Statements in Java
+
+- Das Versenden einer Nachricht an ein Objekt ist eine vom Programmierer spezifizierte Aktion.
+- Diese Aktion wird vom Computer ausgeführt, wenn das Programm läuft.
+- In Java werden alle Aktionen durch Statements spezifiziert.
+- der Gesammte Ausdruck `System.out.println("Argument");` ist ein **Statement**
+
+## **Programme**
 
 ```java
 public class Program1 {
