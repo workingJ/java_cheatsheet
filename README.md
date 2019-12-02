@@ -13,11 +13,21 @@
     - [Klassen in Java](#klassen-in-java)
     - [Räpresentation in Java](#r%c3%a4presentation-in-java)
     - [Methoden](#methoden)
-    - [Nachrichten / Messages in Java](#nachrichten--messages-in-java)
+    - [Nachrichten in Java](#nachrichten-in-java)
       - [Komponenten einer Nachricht](#komponenten-einer-nachricht)
-      - [Statements in Java](#statements-in-java)
+    - [Statements in Java](#statements-in-java)
   - [**Programme**](#programme)
   - [**Keywords**](#keywords)
+    - [**`public`:**](#public)
+    - [**`private`:**](#private)
+    - [**`protected`:**](#protected)
+    - [**`static`:**](#static)
+    - [**`final`:**](#final)
+    - [**`this`:**](#this)
+    - [**`extends`:**](#extends)
+    - [**`super`:**](#super)
+    - [**`exception`**](#exception)
+    - [**`abstract`**](#abstract)
   - [**Operatoren**](#operatoren)
   - [**Input & Output**](#input--output)
     - [**Text Ausgabe auf der Komandoziele**](#text-ausgabe-auf-der-komandoziele)
@@ -41,11 +51,18 @@
     - [Abstrakte Methoden und Klassen (Motivation)](#abstrakte-methoden-und-klassen-motivation)
     - [**`abstract`-Keyword**](#abstract-keyword)
   - [**Interfaces**](#interfaces)
+    - [Instanz mehrerer Interfaces](#instanz-mehrerer-interfaces)
+    - [Konstanten in Interfaces und Klassen](#konstanten-in-interfaces-und-klassen)
+    - [Interfaces ohne Inhalt](#interfaces-ohne-inhalt)
+    - [Interface-Implementierung durch anonyme Klasse](#interface-implementierung-durch-anonyme-klasse)
+    - [Designentscheidung: Interface oder abstrakte Klasse](#designentscheidung-interface-oder-abstrakte-klasse)
+    - [Interface mit Standard-Implementierung](#interface-mit-standard-implementierung)
+  - [dynamisches binden](#dynamisches-binden)
 
 ## **Was ist Informatik?**
 
-**Informatik Duden:**
-Is die Wissenschaft von der automatischen Verarbeitung von Informationen, besonders der automatischen Verarbeitung mit Hilfe von Digitalrechnern.
+**Informatik lt. Duden:**
+Ist die Wissenschaft von der automatischen Verarbeitung von Informationen, besonders der automatischen Verarbeitung mit Hilfe von Digitalrechnern.
 
 **Association of Computing Machinery (ACM):**  
 Computer science is the systematic study of algorithms and data structures,
@@ -82,7 +99,7 @@ specifically
 
 ### Warum Java
 
-- Java ist eine **objektorientierte** Sprache mit imperativem Kern und funktionalen Erweiterungen
+- Java ist eine **objektorientierte** Sprache mit **imperativem** Kern und **funktionalen** Erweiterungen
 - Java ist *die* Sprache des Internet-Zeitalters
 
 ## **Java: Ein erster Blick**
@@ -135,7 +152,7 @@ Eine **Referenz** in Java ist ein Ausdruck, der einen Bezug zu einem **Objekt** 
 - Das in einer Klasse **vordefinierte Verhalten** wird als **Methode** bezeichnet.
 - Das aufrufen der Methode eines Objektes entspricht dem Senden der Nachricht an dieses Objekt.
 
-### Nachrichten / Messages in Java
+### Nachrichten in Java
 
 Durch Nachrichten aktiviert man das Verhalten eines Objektes, das in Seiner Klasse vordefiniert wurde.  
 Schickt man eine **`println`-Nachricht an das Objekt der Klasse `PrintStream`**, wird ein Text auf dem Bildschirm ausgegeben.
@@ -162,7 +179,7 @@ println()   // Das Verhalten, die vordefinierte Methode
 "Argument"  // Details der Nachricht, auch Argument genannt
 ```
 
-#### Statements in Java
+### Statements in Java
 
 - Das Versenden einer Nachricht an ein Objekt ist eine vom Programmierer spezifizierte Aktion.
 - Diese Aktion wird vom Computer ausgeführt, wenn das Programm läuft.
@@ -183,16 +200,46 @@ public class Program1 {
 
 ## **Keywords**
 
-- **public:** used in a method or variable declaration. It signifies that the method or variable can be accessed by elements residing in other classes.
-- **private:** bedeutet, das man nur von innerhalb der Klasse auf die mit `private` gekennzeichneten Methoden und Variablen zugreifen kann. used in a method or variable declaration. It signifies that the method or variable can only be accessed by other elements of its class.
-- **protected:** used in a method or variable declaration. It signifies that the method or variable can only be accessed by elements residing in its class, subclasses, or classes in the same package.
-- **static:** bedeutet, das eine Variable oder eine Methode die mit `public` gekennzeichnet ist unhabhängig von einem Objekt aufgerufen und verwendet werden kann.
-- **final:** entspricht einer Konstante, wird einmal deklariert und initialisiert und ist danach nicht mehr veränderbar
-- **this:**  Repräsentiert eine Instanz der Klasse in der es Auftaucht. z.B. Zugriff auf eine `private` Variable o. eine Methode
-- **extends:** Class X extends class Y to add functionality, either by adding fields or methods to class Y, or by overriding methods of class Y. An interface extends another interface by adding methods. Class X is said to be a subclass of class Y.
-- **super:** used to access members of a class inherited by the class in which it appears.
-- **exception** An event during program execution that prevents the program from continuing normally; generally, an error. The Java(TM) programming language supports exceptions with the try, catch, and throw keywords. See also exception handler.
-- **abstract** A Java(TM) programming language keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited by other classes. An abstract class can have abstract methods that are not implemented in the abstract class, but in subclasses.
+
+### **`public`:**
+
+ used in a method or variable declaration. It signifies that the method or variable can be accessed by elements residing in other classes.
+
+### **`private`:**
+
+ bedeutet, das man nur von innerhalb der Klasse auf die mit `private` gekennzeichneten Methoden und Variablen zugreifen kann. used in a method or variable declaration. It signifies that the method or variable can only be accessed by other elements of its class.
+
+### **`protected`:**
+
+ used in a method or variable declaration. It signifies that the method or variable can only be accessed by elements residing in its class, subclasses, or classes in the same package.
+
+### **`static`:**
+
+ bedeutet, das eine Variable oder eine Methode die mit `public` gekennzeichnet ist unhabhängig von einem Objekt aufgerufen und verwendet werden kann.
+
+### **`final`:**
+
+ entspricht einer Konstante, wird einmal deklariert und initialisiert und ist danach nicht mehr veränderbar
+
+### **`this`:**
+
+  Repräsentiert eine Instanz der Klasse in der es Auftaucht. z.B. Zugriff auf eine `private` Variable o. eine Methode
+
+### **`extends`:**
+
+ Class X extends class Y to add functionality, either by adding fields or methods to class Y, or by overriding methods of class Y. An interface extends another interface by adding methods. Class X is said to be a subclass of class Y.
+
+### **`super`:**
+
+ used to access members of a class inherited by the class in which it appears. zB. Aufrufen des Konstruktors der übergeorneten Klasse.
+
+### **`exception`**
+
+ An event during program execution that prevents the program from continuing normally; generally, an error. The Java(TM) programming language supports exceptions with the try, catch, and throw keywords. See also exception handler.
+
+### **`abstract`**
+
+ A Java(TM) programming language keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited by other classes. An abstract class can have abstract methods that are not implemented in the abstract class, but in subclasses.
   - **`abstract class`** A class that contains one or more abstract methods, and therefore can never be instantiated. Abstract classes are defined so that other classes can extend them and make them concrete by implementing the abstract methods. Z.b. `class Number` von der alle Wrapper-Klassen der primitiven Datentypen erben.
   - **`abstract method`** A method that has no implementation
 - **interface** used to define a collection of method definitions and constant values. It can later be implemented by classes that define this interface with the `implements` keyword.
@@ -537,7 +584,8 @@ abstract class Figur{
 ## **Interfaces**
 
 Interfaces dienen dazu, ein Verhalten zu spezifizieren, das von Klassen
-implementiert werden soll. 
+implementiert werden soll. Eine Klasse kann mehrere Interfaces haben.
+Ein Interface drückt Eigenschaften aus, die Klassen in unterschiedlichen Hierarchiestufen implementieren können.
 
 ```java
 interface Orderable {
@@ -546,7 +594,11 @@ interface Orderable {
 }
 ```
 
-Wenn eine Klasse ein Interface implementiert, kann sie so behandelt werden, als wäre sie eine Subklasse des Interfaces.
+- Wenn eine Klasse ein Interface implementiert, kann sie so behandelt werden, als wäre sie eine Subklasse des Interfaces.
+- Auch Interfaces können eine Hierarchie bilden.
+- Eine implementierende Klasse muss alle Methoden eines implementierten Interfaces und seiner Vorgänger implementieren.
+- Ob ein Objekt zu irgendeiner Klasse oder einem Interface gehört (is-a), lässt sich durch einen Ausdruck mit dem Schlüsselwort `instanceof` herausbekommen: Objektname `instanceof` Klasse-oder-Interface
+
 
 ```java
 // class SortableInteger implements Orderable implements dies implements das {
@@ -573,6 +625,63 @@ class SortableInteger implements Orderable {
 }
 ```
 
+```java
+interface EinDimensional{
+      public int laenge();
+}
+interface ZweiDimensional extends EinDimensional{
+      public int breite();
+}
+interface DreiDimensional extends ZweiDimensional{
+      public int hoehe();
+}
+```
+
+### Instanz mehrerer Interfaces
+
+```java
+public class Quader implements DreiDimensional,
+Comparable<Quader> {
+// ... Konstruktoren ...
+public int laenge() { return 0; }
+public int breite() { return 0; }
+public int hoehe() { return 0; }
+public int volumen (){
+return laenge() * breite() * hoehe();
+}
+public int compareTo (Quader o){
+int me = this.volumen();
+int other = o.volumen();
+if (me < other) return -1;
+if (me > other) return 1;
+return 0;
+}
+```
+
+### Konstanten in Interfaces und Klassen
+
+Interfaces können auch Konstanten `(static final)` definieren.
+
+### Interfaces ohne Inhalt
+
+Interfaces können Methoden, Konstanten, und Felder haben, oder auch leer sein.
+
+### Interface-Implementierung durch anonyme Klasse
+
+```java
+public static void main (String[] args){
+      plot (new D2Method() {// implementiert D2Method
+                  public double compute (double value){
+                  return value*value;
+                  } // end compute
+            } // end anonyme Klasse
+      ); // end plot-Statement
+} // end main
+```
+
+### Designentscheidung: Interface oder abstrakte Klasse
+
+### Interface mit Standard-Implementierung
 
 
-
+## dynamisches binden
