@@ -2,8 +2,8 @@
 
 - [**Heinz Cheat Sheet**](#heinz-cheat-sheet)
   - [**Was ist Informatik?**](#was-ist-informatik)
-    - [Aspekte der Informatik?](#aspekte-der-informatik)
-    - [Was ist ein Computer?](#was-ist-ein-computer)
+    - [Aspekte der Informatik](#aspekte-der-informatik)
+    - [Was ist ein Computer](#was-ist-ein-computer)
     - [Was ist eigentlich ein Programm](#was-ist-eigentlich-ein-programm)
   - [**Programmierparadigmen, ein fundamentaler Programmier-Stile**](#programmierparadigmen-ein-fundamentaler-programmier-stile)
     - [Warum Java](#warum-java)
@@ -13,10 +13,20 @@
     - [Klassen in Java](#klassen-in-java)
     - [Räpresentation in Java](#r%c3%a4presentation-in-java)
     - [Methoden](#methoden)
+      - [**Methoden-Selektor**](#methoden-selektor)
+      - [**Signatur** eine Methode](#signatur-eine-methode)
+      - [**Prototyp** einer Methode](#prototyp-einer-methode)
     - [Nachrichten in Java](#nachrichten-in-java)
       - [Komponenten einer Nachricht](#komponenten-einer-nachricht)
     - [Statements in Java](#statements-in-java)
-  - [**Programme**](#programme)
+    - [Variablen in Java](#variablen-in-java)
+    - [Formatierung in Java](#formatierung-in-java)
+    - [Kommentare in Java](#kommentare-in-java)
+  - [**Programme in Java**](#programme-in-java)
+    - [Das Compiler-Modell](#das-compiler-modell)
+    - [Das Interpreter-Modell](#das-interpreter-modell)
+      - [Das Java-Modell](#das-java-modell)
+  - [Fehler](#fehler)
   - [**Keywords**](#keywords)
     - [**`public`:**](#public)
     - [**`private`:**](#private)
@@ -72,7 +82,7 @@ specifically
 - their mechanical and linguistic realizations, and
 - their applications
 
-### Aspekte der Informatik?
+### Aspekte der Informatik
 
 - Technische Realisierung
 - Effiziente Verfahren
@@ -80,7 +90,7 @@ specifically
 - Programmiersprachen
 - Techniken und Tools zur Programmentwicklung
 
-### Was ist ein Computer?
+### Was ist ein Computer
 
 ***Ein universell einsetzbares, frei Programmierbares Gerät zur automatischen Datenverarbeitung. Zb. Steuert von Maschinen und Autos, berechnet Messwerte, zum verfassen von Dokumenten etc.***
 
@@ -131,6 +141,10 @@ Java verwendet für die Elemente eines Modelles ***Objekte***.
 
 ### Räpresentation in Java
 
+Namen einer Klasse oder einer Methode in Java nennt man Identifier oder Bezeichner
+Klassen und Nachrichten müssen einen Bezeichner haben. Dabei wird zwischen Groß- und Kleinschreibung
+unterschieden.
+
 Der **Bildschirm (die Konsole)** wird durch ein **vordefiniertes Objekt** repräsentiert.  
 Dieses Objekt ist Instanz der Klasse `PrintStream`.
 Objekte der Klasse `PrintStream` erlauben das Ausgeben *Zeichenketten*.
@@ -151,6 +165,37 @@ Eine **Referenz** in Java ist ein Ausdruck, der einen Bezug zu einem **Objekt** 
 
 - Das in einer Klasse **vordefinierte Verhalten** wird als **Methode** bezeichnet.
 - Das aufrufen der Methode eines Objektes entspricht dem Senden der Nachricht an dieses Objekt.
+- Methoden ohne Rückgabewert geben `void` zurück.
+
+#### **Methoden-Selektor**
+
+```java
+  System.out.println("Hallo Welt!");/*
+  |________________________________| > Statement
+            |______________________| > Methoden-Aufruf
+  |_________|                        > Referenz auf Empfänger_Objekt
+            |_______|                > Methoden Selector (Verhalten, sendet Nachricht)
+                    |______________| > Argument (Inhalt der NChricht)
+
+```
+
+Alle Aktionen in Java werden durch **Statements** spezifiziert.
+
+#### **Signatur** eine Methode
+
+Bezeichnung (Name) der Methode plus Beschreibung seiner Argumente
+
+```java
+feineMethode(int value, int counter)
+```
+
+#### **Prototyp** einer Methode
+
+Signatur + Beschreibung des Return-Wertes
+
+```java
+int feineMethode(int value, int counter);
+```
 
 ### Nachrichten in Java
 
@@ -185,8 +230,95 @@ println()   // Das Verhalten, die vordefinierte Methode
 - Diese Aktion wird vom Computer ausgeführt, wenn das Programm läuft.
 - In Java werden alle Aktionen durch Statements spezifiziert.
 - der Gesammte Ausdruck `System.out.println("Argument");` ist ein **Statement**
+- Statements werden in der Reihenfolge ausgeführt, in der siegeschrieben wurden.
 
-## **Programme**
+### Variablen in Java
+
+
+
+### Formatierung in Java
+
+Halten Sie sich bei der Erstellung von Java-Programmen an folgende Regeln:
+
+1. Jede Zeile enthält höchstens ein Statement.
+2. Verwenden Sie die Tabulator-Taste, um Statements einzurücken.
+
+Vorteile:
+
+1. Programme sind leichter lesbar,
+2. leichter zu verstehen und damit auch
+3. leichter zu warten.
+
+### Kommentare in Java
+
+1. Vor jeder Zeile, die mit dem Wort class beginnt, sollte ein Kommentar stehen, der die Klasse erklärt.
+2. Kommentare sollten dazu dienen, Dinge zu erklären, die nicht unmittelbar aus dem Code abgelesen werden können.
+3. Kommentare sollten nicht in der Mitte von einem Statement auftauchen.
+
+```java
+
+// Dies ist ein einzeiliger Kommentar
+
+/* Dieser Kommentar ist mehrzeilig
+Dieser Kommentar ist mehrzeilig
+Dieser Kommentar ist mehrzeilig
+Dieser Kommentar ist mehrzeilig
+*/
+
+/// Dies ist ein Dokumentations-Kommentar (Doc-Comment)
+
+/** Dies ist ei  Doc-Comment
+ * Geschwindigkeit ist verantwortlich für die Umrechnung
+ * verschiedener Geschwindigkeitsmasse untereinander.
+ *
+ * @author Dein Ponny
+ *
+ * @version 1.0
+ */
+
+```
+
+## **Programme in Java**
+
+Um ein Programm auf einem Rechner ausführen zu können, müssen wir
+
+1. das Programm für den Computer zugänglich machen,
+2. das Programm in eine Form übersetzen, die der Rechner versteht, und
+3. den Computer anweisen, das Programm auszuführen.
+
+### Das Compiler-Modell
+
+Das Programm wird direkt in Maschinencode übersetzt und kann vom Rechner unmittelbar ausgeführt werden.
+
+### Das Interpreter-Modell
+
+- Das Programm wird von einem Interpreter direkt ausgeführt.
+- Der Interpreter verwendet für jedes Statement bei der Ausführung eine entsprechende Sequenz von Maschinenbefehlen.
+
+Vergleich zum Compiler:
+
+1. Das Programm muss nicht erst komplett übersetzt werden.
+2. Die Interpretation ist langsamer als die Ausführung kompilierter Programme.
+
+#### Das Java-Modell
+
+Java verwendet einen Interpreter und einen Compiler:
+
+- Java übersetzt zunächst in eine **Bytecode** genannte Zwischensprache: `javac Program1.java`
+- Der Bytecode wird dann von der **Java virtual machine (JVM) interpretiert**: `java Program1`
+
+```txt
+                                                   -------------------------------------
+                                                   |                                   |
+--------------     ---------    ---------------    | ---------------     ------------- |
+| Hello.java |  -> | javac | -> | Hello.class | -> | | Interpreter | <-> | Prozessor | |
+--------------     --------     ---------------    | ---------------     ------------- |
+                                                   |                                   |
+                                                   -------------------------------------
+
+```
+
+Ein Komplettes Programm
 
 ```java
 public class Program1 {
@@ -197,9 +329,18 @@ public class Program1 {
 }
 ```
 
+## Fehler
+
+Wir unterscheiden grob 2 Arten von Fehlern:
+
+1. Compile-Zeit-Fehler (compile-time errors) werden bei der Übersetzung entdeckt und führen zum Abbruch des Übersetzungsprozesses.
+2. Laufzeitfehler (run-time errors) treten bei der Ausführung auf und liefern falsche Ergebnisse oder führen zum Absturz des Programms.
+
+Laufzeitfehler sind in der Regel schwerer zu entdecken!
 
 ## **Keywords**
 
+Spezielle Worte mit vordefinierter Bezeichnung zb.: `System, println, static, void, throws`
 
 ### **`public`:**
 
@@ -239,9 +380,10 @@ public class Program1 {
 
 ### **`abstract`**
 
- A Java(TM) programming language keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited by other classes. An abstract class can have abstract methods that are not implemented in the abstract class, but in subclasses.
-  - **`abstract class`** A class that contains one or more abstract methods, and therefore can never be instantiated. Abstract classes are defined so that other classes can extend them and make them concrete by implementing the abstract methods. Z.b. `class Number` von der alle Wrapper-Klassen der primitiven Datentypen erben.
-  - **`abstract method`** A method that has no implementation
+A Java(TM) programming language keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited by other classes. An abstract class can have abstract methods that are not implemented in the abstract class, but in subclasses.
+
+- **`abstract class`** A class that contains one or more abstract methods, and therefore can never be instantiated. Abstract classes are defined so that other classes can extend them and make them concrete by implementing the abstract methods. Z.b. `class Number` von der alle Wrapper-Klassen der primitiven Datentypen erben.
+- **`abstract method`** A method that has no implementation
 - **interface** used to define a collection of method definitions and constant values. It can later be implemented by classes that define this interface with the `implements` keyword.
 
 ## **Operatoren**
@@ -599,7 +741,6 @@ interface Orderable {
 - Eine implementierende Klasse muss alle Methoden eines implementierten Interfaces und seiner Vorgänger implementieren.
 - Ob ein Objekt zu irgendeiner Klasse oder einem Interface gehört (is-a), lässt sich durch einen Ausdruck mit dem Schlüsselwort `instanceof` herausbekommen: Objektname `instanceof` Klasse-oder-Interface
 
-
 ```java
 // class SortableInteger implements Orderable implements dies implements das {
 class SortableInteger implements Orderable {
@@ -619,7 +760,6 @@ class SortableInteger implements Orderable {
             return ((SortableInteger) comp).val == this.val;
       }
       public String toString(){
-            
             return new String(""+this.val); // String-Darstellung
       }
 }
