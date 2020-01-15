@@ -430,7 +430,7 @@ import java.util.Scanner;
 ...
 // The Scanner needs an input Stream, here System.in
 Scanner reader = new Scanner(System.in);
-String input = reader.readLine();
+String input = reader.nextLine();
 ```
 
 #### **Mit InputStreamReader**
